@@ -1,10 +1,22 @@
+/**
+ * project sort
+ * @package bubble sort
+ * @author Novitz Jean-Philippe (hello@jphnovitz.be)
+ * 2020
+ */
+
+/**
+ *
+ * @type {Array}
+ */
 const numbers = [];
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i < 25; i++) {
     let n = Math.floor(Math.random() * 1000) + 1
     numbers.push(n)
 }
 console.log(numbers)
 
+const message = document.querySelector('h2');
 const container = document.querySelector('#container')
 
 for (let i = 0; i < numbers.length; i++) {
@@ -23,12 +35,11 @@ function go() {
     var divs = container.querySelectorAll('.item')
     var flag = false;
     var index = 0;
-    console.log(flag);
     b();
 
     function a() {
         return new Promise(resolve => {
-
+        // message.innerHTML='Je trie';
             setTimeout(() => {
                 if (index < divs.length - 1) {
                     let current = parseInt(divs[index].dataset.number)
@@ -39,6 +50,7 @@ function go() {
                         divs[index + 1].style.color= 'green'
                         container.insertBefore(divs[index + 1], divs[index])
                         divs = container.querySelectorAll('.item')
+
                     }else {
                         divs[index].style.color= 'black'
                         divs[index + 1].style.color= 'black'
@@ -48,7 +60,7 @@ function go() {
                 }
                 index++;
                 resolve(index);
-            }, 2000);
+            }, 1000);
 
         });
     }
@@ -61,6 +73,9 @@ function go() {
             if (flag === true) {
                 flag = false
                 index = 0
+            } else if (flag === false) {
+                console.log ('fini');
+                message.innerHTML='Fini !';
             }
             b();
         }

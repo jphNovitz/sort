@@ -1,13 +1,14 @@
 body{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
 }
 
 #container{
     display: flex;
     flex-direction: row;
-    max-width: 80vw;
+    min-width: 95%;
+    min-height: 90vh;
     flex-wrap: wrap;
     margin: auto;
 }
@@ -15,4 +16,8 @@ body{
 .item{
     padding: .5rem;
     margin: .5rem;
+}
+
+h1, h2, h4, h6{
+    text-align: center;
 }
